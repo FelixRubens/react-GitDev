@@ -1,67 +1,10 @@
 import React from 'react'
-import { Text } from 'react-native'
 import { createAppContainer } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
-import { createMaterialTopTabNavigator } from 'react-navigation-tabs';
 
 import Search from './screens/SearchScreen.js'
-import Main from './screens/MainScreen.js';
-
-const tabs = createMaterialTopTabNavigator({
-    Usuário: {
-        screen: Main,
-        navigationOptions: {
-            tabBarLabel: 'Usuário',
-        }
-    },
-    Repositórios: {
-        screen: Main,
-        navigationOptions: {
-            tabBarLabel: 'Repositórios'
-        }
-    },
-    Seguidores: {
-        screen: Main,
-        navigationOptions: {
-            tabBarLabel: 'Seguidores',
-        }
-    }
-},
-{
-    tabBarOptions: {
-        activeTintColor: '#f53649',
-        inactiveTintColor: 'rgba(255,255,255,0.0)',
-        pressColor: '#f53649',
-        upperCaseLabel: false,
-
-        labelStyle: {
-            backgroundColor: 'transparent',
-            fontWeight: 'bold',
-            fontSize: 18,
-            
-        },
-
-        style: {
-            backgroundColor: '#232324',
-            elevation: 0,
-        },
-
-        indicatorStyle: {
-            backgroundColor: '#f53649',
-            height: 5,
-            borderRadius: 3,
-            opacity: 0.7
-        },
-
-        tabStyle: {
-            justifyContent: 'space-between',
-            width: 'auto',
-            paddingHorizontal: '3.65%',
-            height: 45,
-        }
-    }
-}
-);
+import Main from './screens/MainScreen.js'
+import Github from './screens/GithubScreen'
 
 const stack = createStackNavigator({
     Search: {
@@ -70,12 +13,12 @@ const stack = createStackNavigator({
             headerShown: false,
         }
     },
-    tabs: {
-        screen: tabs,
+    Main: {
+        screen: Main,
         navigationOptions:  ({navigation}) => ({
             title:navigation.getParam('userData').login || 'ola',
             headerStyle: {
-                backgroundColor: '#232324',
+                backgroundColor: '#282a36',
                 elevation: 0,
                 shadowOpacity: 0,
                 height: 60,
@@ -85,13 +28,35 @@ const stack = createStackNavigator({
             headerTitleStyle: {
                 fontWeight: 'bold',
                 fontSize: 25,
-                color: '#f53649'
+                color: 'white'
             },
            headerBackTitleStyle:{
-               color: '#f53649'
+               color: 'white'
            },
         })
     },
+    Github: {
+        screen: Github,
+        navigationOptions:  ({navigation}) => ({
+            title:navigation.getParam('title'),
+            headerStyle: {
+                backgroundColor: '#282a36',
+                elevation: 0,
+                shadowOpacity: 0,
+                height: 70,
+            },
+            headerTintColor: '#666',
+            headerTitleAlign: 'center',
+            headerTitleStyle: {
+                fontWeight: 'bold',
+                fontSize: 20,
+                color: 'white',                
+            },
+           headerBackTitleStyle:{
+               color: 'white'
+           },
+        })
+    }
 });
 
 export default createAppContainer(stack)

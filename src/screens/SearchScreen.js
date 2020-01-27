@@ -15,7 +15,7 @@ export default function SearchScreen({navigation}) {
         const userFollower = await axios.get(`https://api.github.com/users/${search}/followers`)
         setSearching(false)
         setSearch('')
-        navigation.navigate('tabs', {userData: userData.data, userFollower: userFollower.data, userRepos: userRepos.data})
+        navigation.navigate('Main', {userData: userData.data, userFollower: userFollower.data, userRepos: userRepos.data})
         return
     }catch(e){
         console.log(e)
@@ -73,7 +73,7 @@ const searchStyles = StyleSheet.create({
 
     border: {
         flex: 1,
-        backgroundColor: '#232324',
+        backgroundColor: '#282a36',
         borderBottomRightRadius: 70,
         width: '100%',
         borderWidth: 2,

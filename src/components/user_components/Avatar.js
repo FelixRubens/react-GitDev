@@ -16,7 +16,7 @@ const avatarStyle = StyleSheet.create({
         borderRadius: 100,
         borderWidth: 3,
         borderColor: 'rgba(245, 54, 73, 0.8)',
-        marginVertical: 30,
+        marginTop: 30,
         alignSelf: 'center'
     }
 })
