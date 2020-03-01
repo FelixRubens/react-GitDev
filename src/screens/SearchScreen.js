@@ -74,11 +74,9 @@ const searchStyles = StyleSheet.create({
     border: {
         flex: 1,
         backgroundColor: '#282a36',
-        borderBottomRightRadius: 70,
         width: '100%',
-        borderWidth: 2,
-        borderColor: '#333'
     },
+
     logo: {
         fontSize: 38,
         position: 'absolute',
@@ -102,7 +100,7 @@ const searchStyles = StyleSheet.create({
         fontWeight: 'bold',
         fontSize: 25,
         color: '#f53649',
-        marginBottom: 5
+        marginBottom: 5,
     },
     input: {
         alignItems: 'center',

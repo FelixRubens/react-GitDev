@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import { View, TouchableOpacity, StyleSheet, Text } from 'react-native';
 
 // import { Container } from './styles';
@@ -6,11 +6,13 @@ import { View, TouchableOpacity, StyleSheet, Text } from 'react-native';
 export default function ReposCard({
   title,
   description,
-  author,
+  updated,
   language,
   navigation,
   link
 }) {
+  
+  const date = new Date(updated)
   return (
     <TouchableOpacity  
       style={reposStyles.container}
@@ -19,9 +21,9 @@ export default function ReposCard({
       }}
     >
       <Text style={reposStyles.title}>{title}</Text>
-      <Text style={reposStyles.description}>{description}</Text>
-      <Text style={reposStyles.topic}>Autor:</Text>
-      <Text style={reposStyles.topicResponse}>{author}</Text>
+      <Text numberOfLines={3} style={reposStyles.description}>{description}</Text>
+      <Text style={reposStyles.topic}>Ultima Atualização:</Text>
+      <Text style={reposStyles.topicResponse}>{`${date.getDate()}/${date.getMonth() + 1}/${date.getFullYear()}`}</Text>
       <Text style={reposStyles.topic}>Linguagem:</Text>
       <Text style={reposStyles.topicResponse}>{language}</Text>
     </TouchableOpacity>
@@ -52,7 +54,7 @@ const reposStyles = StyleSheet.create({
   },
   description: {
     color: '#ccc',
-    overflow: 'scroll',
+    overflow: 'visible',
     textAlign: 'center',
     paddingTop: 5,
     paddingHorizontal: 5,

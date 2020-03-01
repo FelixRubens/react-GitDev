@@ -26,7 +26,7 @@ export default function MainScreen({navigation}) {
                         <ReposCard 
                           title = {item.name}
                           description = {item.description}
-                          author = {item.owner.login}
+                          updated = {item.updated_at}
                           language = {item.language}
                           navigation= {navigation}
                           link={item.html_url}
